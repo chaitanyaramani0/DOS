@@ -74,30 +74,6 @@ class PickUpForm(ModelForm):
         }
 
 class PickUpedForm(ModelForm):
-    # pickup_choices = {
-    #     ("One_Time", "One Time"), 
-    #     ("Recurring", "Recurring"),
-    # }
-
-    # bin_choices = {
-    #     ("Compost","Compost"),
-    #     ("Landfill","Landfill"),
-    #     ("Wood","Wood"),
-    #     ("Metal","Metal"),
-    #     ("Paper/Cardboard","Paper/Cardboard"),
-    #     ("Plastic-Wrap","Plastic-Wrap"),
-    #     ("Plastic-Bottel/Container","Plastic-Bottel/Container"),
-    #     ("Glass-Bottel/Container","Glass-Bottel/Container"),
-    #     ("Aluminium-Cans/Container","Aluminium-Cans/Container"),
-    #     ("E-Waste","E-Waste"),
-
-    # }
-
-    # notes = forms.CharField( disabled=True, widget=forms.Textarea(attrs={"class":"form-control"}))
-    # recurring = forms.ChoiceField( disabled=True ,choices=pickup_choices,widget=forms.Select(attrs={'class':'form-control'}))
-    # bin_type = forms.ChoiceField(disabled=True,choices=bin_choices,widget=forms.Select(attrs={'class':'form-control'}))
-    # schedule_date = forms.CharField(disabled=True,widget=forms.Select(attrs={'class':'form-control'}))
-    # weight = forms.CharField(disabled=True,widget=forms.Select(attrs={'class':'form-control'}))
     class Meta:
         model = PickUp
         fields = ['bin_type','weight','schedule_date','recurring','notes',"is_pickedup",'picked_date']
