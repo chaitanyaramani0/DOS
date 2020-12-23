@@ -17,13 +17,13 @@ def login(request):
             auth_login(request, user)
 
             if user.is_individual:
-                return redirect('individual_dashboard')
+                return redirect('bulk_dashboard')
             elif user.is_bulk:
                 return redirect('bulk_dashboard')
             elif user.is_commercial:
-                return redirect('commercial_dashboard')
+                return redirect('bulk_dashboard')
             elif user.is_industrial:
-                return redirect('industrial_dashboard')     
+                return redirect('bulk_dashboard')     
         else:
             error = "Invalid credentials. Try again."
     return render(request , 'register/login.html',{'error':error})
