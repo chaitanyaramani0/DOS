@@ -1,0 +1,34 @@
+{% load static %}
+<!-- <nav class="navbar navbar-light bg-white shadow-sm p-3 mb-5 bg-white rounded">
+    <a class="navbar-brand" href="#">
+      <img src="{% static '/img/favicons.png' %}" height="45%" width="45%" alt="">
+
+    </a>
+    
+    <ul>
+ 
+    <a href="{% url 'pickup'%}"><h6>Scedule Pickup</h6></a>
+    <a href="{% url 'logout'%}"><h6>Logout</h6></a>
+ 
+    </ul>
+  </nav> -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm p-3 mb-5 bg-white rounded">
+    <a class="navbar-brand" href="#"><img src="{% static '/img/favicons.png' %}" height="45%" width="45%" alt=""></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" style="margin-left: -67px;" id="navbarNav">
+      <ul class="navbar-nav">
+        {% if user.is_authenticate %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'pickup'%}">Schedule-pickup</a>
+        </li>
+       
+       
+      </ul>
+    </div>
+    <a href="{% url 'logout'%}"><h6>Logout</h6></a>
+    {% endif %}
+  </nav>
+
+

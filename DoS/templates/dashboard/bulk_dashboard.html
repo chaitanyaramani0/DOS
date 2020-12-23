@@ -1,0 +1,117 @@
+{% extends 'common/base.html' %}
+{% block container %}
+{% include 'common/nav.html'%}
+<div class="container">
+    <div class="row">
+    <div class="col-md-12 shadow p-3 mb-5 bg-white rounded">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                  <th scope="col">Bin Type</th>
+                  <th scope="col">Weight (lbs)</th>
+                  <th scope="col">Schedule Date</th>
+                  <th scope="col">Pickup Method</th>
+                  <th scope="col">Additional Notes</th>
+                </tr>
+                <tbody>
+                    {% for obj in data %}
+                    <tr>
+                      <th>{{obj.bin_type}}</th>
+                      <td>{{obj.weight}}</td>
+                      <td>{{obj.schedule_date}}</td>
+                      <td>{{obj.recurring}}</td>
+                      <td>{{obj.notes}}</td>
+                      
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+              </thead>
+        </table>
+    </div>
+    <div class="col-md-6 shadow p-3 mb-5 bg-white rounded">
+        <div class="card">
+            <div class="card-header">
+              <b>Total Weight By category</b>
+              
+            </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                      <th scope="col">Bin Type</th>
+                      <th scope="col">Total Weight (lbs)</th>
+                    </tr>
+                    <tbody>
+                        {% for obj in category_weight %}
+                        <tr>
+                          <th>{{obj.bin_type}}</th>
+                          <td>{{obj.total_weight}}</td>
+                          
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                  </thead>
+            </table>
+            </div>
+
+    </div>
+    <div class="col-md-6 shadow p-3 mb-5 bg-white rounded">
+        <div class="card">
+            <div class="card-header">
+              <b>Total Picked Up By category</b>
+              
+            </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                      <th scope="col">Bin Type</th>
+                      <th scope="col">Total Pickup</th>
+                    </tr>
+                    <tbody>
+                        {% for obj in total_pickup %}
+                        <tr>
+                          <th>{{obj.bin_type}}</th>
+                          <td>{{obj.total_count}}</td>
+                          
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                  </thead>
+            </table>
+            </div>
+
+    </div>
+    <div class="col-md-12 shadow p-3 mb-5 bg-white rounded">
+        <div class="card">
+            <div class="card-header">
+              <b>Pickup Information</b>
+              
+            </div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                  <th scope="col">Bin Type</th>
+                  <th scope="col">Weight (lbs)</th>
+                  <th scope="col">Schedule Date</th>
+                  <th scope="col">Pickup Date</th>
+                  
+                </tr>
+                <tbody>
+                    {% for obj in pickup_done %}
+                    <tr>
+                      <th>{{obj.bin_type}}</th>
+                      <td>{{obj.weight}}</td>
+                      <td>{{obj.schedule_date}}</td>
+                      <td>{{obj.picked_date}}</td>
+                    
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+              </thead>
+        </table>
+        </div>
+    </div>
+    </div>
+</div>
+{% endblock %}
+
+

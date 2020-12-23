@@ -1,0 +1,155 @@
+{% extends 'common/base.html' %}
+{% block container %}
+{% include 'common/nav.html'%}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 shadow p-3 mb-5 bg-white rounded"> <b>Total  weight (whole city): {{ total_weight.weight__sum}} (lbs)</b></div>
+    <div class="col-md-12 shadow p-3 mb-5 bg-white rounded">
+        <div class="card">
+            <div class="card-header">
+              <b>Pickup</b>
+              
+            </div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                  <th scope="col">Bin Type</th>
+                  <th scope="col">Weight (lbs)</th>
+                  <th scope="col">Schedule Date</th>
+                  <th scope="col">Pickup Method</th>
+                  <th scope="col">Additional Notes</th>
+                  <th scope="col">Pick Date</th>
+                  <th scope="col">Picked Up</th>
+                </tr>
+                <tbody>
+                    {% for obj in data %}
+                    <tr>
+                      <th>{{obj.bin_type}}</th>
+                      <td>{{obj.weight}}</td>
+                      <td>{{obj.schedule_date}}</td>
+                      <td>{{obj.recurring}}</td>
+                      <td>{{obj.notes}}</td>
+                      <td>{{obj.picked_date}}</td>
+                      <td>{{obj.is_pickedup}}</td>
+                      <td><a href="{% url 'dos_pickup' obj.id %}" class="btn btn-success">Update Pickup</a></td>
+                      
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+              </thead>
+        </table>
+        </div>
+    </div>
+    <!-- <div class="col-md-12 shadow p-3 mb-5 bg-white rounded">
+        <div class="card">
+            <div class="card-header">
+              <b>Bulk Pickup</b>
+              
+            </div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                  <th scope="col">Bin Type</th>
+                  <th scope="col">Weight (lbs)</th>
+                  <th scope="col">Schedule Date</th>
+                  <th scope="col">Pickup Method</th>
+                  <th scope="col">Additional Notes</th>
+                  <th scope="col">Pick Date</th>
+                  <th scope="col">Picked Up</th>
+                </tr>
+                <tbody>
+                    {% for obj in bulk %}
+                    <tr>
+                      <th>{{obj.bin_type}}</th>
+                      <td>{{obj.weight}}</td>
+                      <td>{{obj.schedule_date}}</td>
+                      <td>{{obj.recurring}}</td>
+                      <td>{{obj.notes}}</td>
+                      <td>{{obj.picked_date}}</td>
+                      <td>{{obj.is_pickedup}}</td>
+                      <td><a href="{% url 'dos_pickup' obj.id %}" class="btn btn-success">Update Pickup</a></td>
+                      
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+              </thead>
+        </table>
+        </div>
+    </div>
+    <div class="col-md-12 shadow p-3 mb-5 bg-white rounded">
+        <div class="card">
+            <div class="card-header">
+              <b>Bulk Pickup</b>
+              
+            </div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                  <th scope="col">Bin Type</th>
+                  <th scope="col">Weight (lbs)</th>
+                  <th scope="col">Schedule Date</th>
+                  <th scope="col">Pickup Method</th>
+                  <th scope="col">Additional Notes</th>
+                  <th scope="col">Pick Date</th>
+                  <th scope="col">Picked Up</th>
+                </tr>
+                <tbody>
+                    {% for obj in bulk %}
+                    <tr>
+                      <th>{{obj.bin_type}}</th>
+                      <td>{{obj.weight}}</td>
+                      <td>{{obj.schedule_date}}</td>
+                      <td>{{obj.recurring}}</td>
+                      <td>{{obj.notes}}</td>
+                      <td>{{obj.picked_date}}</td>
+                      <td>{{obj.is_pickedup}}</td>
+                      <td><a href="{% url 'dos_pickup' obj.id %}" class="btn btn-success">Update Pickup</a></td>
+                      
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+              </thead>
+        </table>
+        </div>
+    </div>
+    <div class="col-md-12 shadow p-3 mb-5 bg-white rounded">
+        <div class="card">
+            <div class="card-header">
+              <b>Bulk Pickup</b>
+              
+            </div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                  <th scope="col">Bin Type</th>
+                  <th scope="col">Weight (lbs)</th>
+                  <th scope="col">Schedule Date</th>
+                  <th scope="col">Pickup Method</th>
+                  <th scope="col">Additional Notes</th>
+                  <th scope="col">Pick Date</th>
+                  <th scope="col">Picked Up</th>
+                </tr>
+                <tbody>
+                    {% for obj in bulk %}
+                    <tr>
+                      <th>{{obj.bin_type}}</th>
+                      <td>{{obj.weight}}</td>
+                      <td>{{obj.schedule_date}}</td>
+                      <td>{{obj.recurring}}</td>
+                      <td>{{obj.notes}}</td>
+                      <td>{{obj.picked_date}}</td>
+                      <td>{{obj.is_pickedup}}</td>
+                      <td style="color :white"><a href="{% url 'dos_pickup' obj.id %}" class="btn btn-success" >Update Pickup</a></td>
+                      
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+              </thead>
+        </table>
+        </div>
+    </div> -->
+    </div>
+</div>
+{% endblock %}
+
+

@@ -1,0 +1,64 @@
+{% extends 'common/base.html' %}
+{% block container %}
+
+<section id="cover" class="min-vh-100">
+    <div id="cover-caption">
+        <div class="container">
+            <div class="row text-white">
+                <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+                    
+                    <div class="px-2 shadow p-3 mb-3 bg-white rounded">
+                        <h3 style="color:grey;">Login</h3><br>
+                        {% if error %}
+  
+                <div class="alert alert-danger">
+
+
+                    <p style="text-align: center;">
+                        <strong> {{ error }}</strong>
+                    </p>
+          
+            </div>{% endif %}
+                        <form method="POST" class="justify-content-center">{% csrf_token %}
+                            <div class="form-group">
+
+                                <input type="text" name="username" class="form-control mb-4" placeholder="UserName">
+
+
+                                <input type="password" name="password" class="form-control mb-4" placeholder="Password">
+
+                                
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-lg">Login</button>
+
+
+                        </form>
+                        
+                    </div>
+                    <div class="px-2 shadow p-1 mb-3 bg-white rounded">
+                        <h5 style="color:grey;">Dont have Account.? Register Here.</h5><br>
+                        <div class="row">
+                            <div class="col-md-6 text-color"> 
+                                <a href="{% url 'signup' 'Bulk' %}"><p class="h4 mb-4" style="  text-align: center; border: 2px solid black; border-radius: 20px;">Bulk</h5></a>
+
+                                
+                            </div>
+                            <div class="col-md-6 text-color"> 
+                                
+                                <a href="{% url 'signup' 'Individual' %}"><h5 class="h4 mb-4" style="text-align: center; border: 2px solid black; border-radius: 20px;">Individual </h5></a>
+                            </div>
+                            <div class="col-md-6 text-color"> 
+                                <a href="{% url 'signup' 'Commercial' %}" ><h5 class="h4 mb-4" style=" text-align: center; border: 2px solid black; border-radius: 20px;">Commercial</h5></a>
+                            </div>
+                            <div class="col-md-6 text-color"> 
+                                <a href="{% url 'signup' 'Industry' %}"><h5 class="h4 mb-4" style=" text-align: center; border: 2px solid black; border-radius: 20px;">Industry</h5></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
